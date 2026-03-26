@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guide Dashboard | TourEase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand">TourEase</a>
+            <nav class="nav" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <button class="btn btn-outline" id="logoutBtn">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <h1>Welcome, <span id="userName"></span></h1>
+            <div class="grid two-col cards">
+                <div class="card">
+                    <h3>Guide Info</h3>
+                    <div class="info-grid">
+                        <div><strong>Name</strong><span id="infoName"></span></div>
+                        <div><strong>Email</strong><span id="infoEmail"></span></div>
+                        <div><strong>Phone</strong><span id="infoPhone"></span></div>
+                        <div><strong>Languages</strong><span id="infoLanguages"></span></div>
+                        <div><strong>Experience (years)</strong><span id="infoExperience"></span></div>
+                        <div><strong>Role</strong><span>Guide</span></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Quick Actions</h3>
+                    <p>Manage your schedule and bookings (demo).</p>
+                    <a href="index.html#services" class="btn btn-primary">Find Opportunities</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+        window.renderDashboard && window.renderDashboard('guide');
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            window.logout && window.logout();
+        });
+    </script>
+</body>
+</html>
+
+

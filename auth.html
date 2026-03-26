@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TourEase | Login & Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand">TourEase</a>
+            <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">☰</button>
+            <nav class="nav" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="auth.html" class="btn btn-primary active">Login / Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="auth">
+        <div class="container auth-container">
+            <div class="auth-card">
+                <div class="tabs role-tabs" id="roleTabs">
+                    <button class="tab active" data-role="user">User</button>
+                    <button class="tab" data-role="driver">Driver</button>
+                    <button class="tab" data-role="guide">Guide</button>
+                </div>
+
+                <div class="toggle login-register-toggle" id="authToggle">
+                    <button class="toggle-btn active" data-mode="login">Login</button>
+                    <button class="toggle-btn" data-mode="register">Register</button>
+                </div>
+
+                <form id="authForm" class="form">
+                    <div class="form-section" data-field="name">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your full name" />
+                        <small class="error" data-error-for="name"></small>
+                    </div>
+                    <div class="form-section">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="you@example.com" required />
+                        <small class="error" data-error-for="email"></small>
+                    </div>
+                    <div class="form-section">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Minimum 6 characters" required />
+                        <small class="hint">Use 6+ chars including a number.</small>
+                        <small class="error" data-error-for="password"></small>
+                    </div>
+                    <div class="form-section" data-field="phone">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" placeholder="e.g. +1 555 123 4567" />
+                        <small class="error" data-error-for="phone"></small>
+                    </div>
+
+                    <div class="form-section role-only" data-role="driver" data-field="vehicleType">
+                        <label for="vehicleType">Vehicle Type</label>
+                        <input type="text" id="vehicleType" placeholder="e.g. Sedan, SUV" />
+                        <small class="error" data-error-for="vehicleType"></small>
+                    </div>
+                    <div class="form-section role-only" data-role="driver" data-field="vehicleNumber">
+                        <label for="vehicleNumber">Vehicle Number</label>
+                        <input type="text" id="vehicleNumber" placeholder="e.g. ABC-1234" />
+                        <small class="error" data-error-for="vehicleNumber"></small>
+                    </div>
+                    <div class="form-section role-only" data-role="driver" data-field="availability">
+                        <label for="availability">Availability</label>
+                        <select id="availability">
+                            <option value="available">Available</option>
+                            <option value="busy">Busy</option>
+                        </select>
+                        <small class="error" data-error-for="availability"></small>
+                    </div>
+
+                    <div class="form-section role-only" data-role="guide" data-field="languages">
+                        <label for="languages">Languages Spoken</label>
+                        <input type="text" id="languages" placeholder="e.g. English, Spanish" />
+                        <small class="error" data-error-for="languages"></small>
+                    </div>
+                    <div class="form-section role-only" data-role="guide" data-field="experience">
+                        <label for="experience">Experience (years)</label>
+                        <input type="number" id="experience" min="0" step="1" placeholder="e.g. 5" />
+                        <small class="error" data-error-for="experience"></small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Login</button>
+                    <p class="note">Demo only: data is stored in your browser localStorage.</p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <span>© <span id="year"></span> TourEase</span>
+            <div class="footer-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="auth.html" class="active">Login/Register</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+
+

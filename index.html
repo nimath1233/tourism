@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TourEase | Explore the World</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand">TourEase</a>
+            <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">☰</button>
+            <nav class="nav" id="navMenu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="auth.html" class="btn btn-primary">Login / Register</a>
+            </nav>
+        </div>
+    </header>
+  <!-- 🔹 Image Slider Section -->
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+        <img src="slider/11.jpg" style="width:100%">
+       
+    </div>
+
+    <div class="mySlides fade">
+        <img src="slider/22.jpg" style="width:100%">
+       
+    </div>
+
+    <div class="mySlides fade">
+        <img src="slider/33.jpg" style="width:100%">
+        
+    </div>
+    <div class="mySlides fade">
+        <img src="slider/44.jpg" style="width:100%">
+        
+    </div>
+</div>
+
+</section>
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Find Your Next Adventure</h1>
+                <p>Book trusted drivers and expert guides, or plan your trip with ease.</p>
+                <div class="hero-cta">
+                    <a href="auth.html" class="btn btn-primary">Get Started</a>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container grid two-col">
+                <div>
+                    <h2>About TourEase</h2>
+                    <p>
+                        We connect travelers with local drivers and experienced guides to make
+                        your journey smooth, safe, and memorable. 100% frontend demo using
+                        localStorage.
+                    </p>
+                    <ul class="checklist">
+                        <li>Vetted drivers and guides</li>
+                        <li>Transparent pricing</li>
+                        <li>24/7 support (demo)</li>
+                    </ul>
+                </div>
+                <div class="card image-card">
+                    <div class="image about-image" role="img" aria-label="Mountains and lake"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section alt">
+            <div class="container">
+                <h2 class="center">Services</h2>
+                <div class="grid three-col cards">
+                    <div class="card">
+                        <h3>Ride with Confidence</h3>
+                        <p>Book nearby drivers with vehicle details and availability.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Explore with Experts</h3>
+                        <p>Guides with languages and years of experience at your service.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Plan Effortlessly</h3>
+                        <p>Create trips, save favorites, and manage bookings (demo only).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container grid two-col">
+                <div>
+                    <h2>Contact</h2>
+                    <p>Have questions? Reach out and we’ll get back soon.</p>
+                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Demo only.');">
+                        <div class="form-row">
+                            <input type="text" placeholder="Your name" required />
+                            <input type="email" placeholder="Email" required />
+                        </div>
+                        <textarea placeholder="Message" rows="4" required></textarea>
+                        <button class="btn btn-primary" type="submit">Send Message</button>
+                    </form>
+                </div>
+                <div class="card image-card">
+                    <div class="image contact-image" role="img" aria-label="Beach and palm trees"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <span>© <span id="year"></span> TourEase</span>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+                <a href="auth.html">Login/Register</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+
+
