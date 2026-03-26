@@ -2,6 +2,18 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 
+const getRatePerKm = (type) => {
+  const t = (type || '').toLowerCase();
+  if (t.includes('ac mini car')) return 75;
+  if (t.includes('mini car')) return 65;
+  if (t.includes('sedan')) return 85;
+  if (t.includes('suv')) return 250;
+  if (t.includes('van')) return 140;
+  if (t.includes('large bus')) return 265;
+  if (t.includes('mini bus')) return 165;
+  return 85;
+};
+
 const DriversList = () => {
   const [drivers, setDrivers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -74,10 +86,14 @@ const DriversList = () => {
                 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px', flex: 1 }}>
                   <div style={{ background: '#f8fafc', padding: '12px 16px', borderRadius: '12px', border: '1px solid var(--outline)' }}>
+                    <span style={{ display: 'block', textTransform: 'uppercase', fontSize: '0.75rem', fontWeight: '700', color: '#94a3b8', letterSpacing: '0.5px', marginBottom: '4px' }}>Rate</span>
+                    <strong style={{ fontSize: '1.1rem', color: 'var(--primary-700)' }}>{getRatePerKm(driver.vehicleType)} LKR/km</strong>
+                  </div>
+                  <div style={{ background: '#f8fafc', padding: '12px 16px', borderRadius: '12px', border: '1px solid var(--outline)' }}>
                     <span style={{ display: 'block', textTransform: 'uppercase', fontSize: '0.75rem', fontWeight: '700', color: '#94a3b8', letterSpacing: '0.5px', marginBottom: '4px' }}>Capacity</span>
                     <strong style={{ fontSize: '1rem', color: '#334155' }}>{driver.vehicleNumber || 'Unspecified'}</strong>
                   </div>
-                  <div style={{ background: '#f8fafc', padding: '12px 16px', borderRadius: '12px', border: '1px solid var(--outline)' }}>
+                  <div style={{ gridColumn: '1 / -1', background: '#f8fafc', padding: '12px 16px', borderRadius: '12px', border: '1px solid var(--outline)' }}>
                     <span style={{ display: 'block', textTransform: 'uppercase', fontSize: '0.75rem', fontWeight: '700', color: '#94a3b8', letterSpacing: '0.5px', marginBottom: '4px' }}>Contact</span>
                     <strong style={{ fontSize: '1rem', color: '#334155' }}>{driver.phone}</strong>
                   </div>

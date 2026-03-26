@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
   role: { type: String, enum: ['user', 'driver', 'guide'], default: 'user' },
   
   // Driver specific fields
+  pricePerDay: { type: Number },
   vehicleType: { type: String },
   vehicleNumber: { type: String },
   availability: { type: String, enum: ['available', 'busy'] },

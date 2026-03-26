@@ -87,10 +87,11 @@ router.put('/driver/update', auth, upload.array('images', 5), async (req, res) =
       return res.status(403).json({ message: 'Only drivers can update these details' });
     }
 
-    const { vehicleType, vehicleNumber, availability } = req.body;
+    const { vehicleType, vehicleNumber, availability, pricePerDay } = req.body;
     if (vehicleType) user.vehicleType = vehicleType;
     if (vehicleNumber) user.vehicleNumber = vehicleNumber;
     if (availability) user.availability = availability;
+    if (pricePerDay !== undefined && pricePerDay !== '') user.pricePerDay = Number(pricePerDay);
 
     if (req.files && req.files.length > 0) {
       const newImages = req.files.map(file => `/uploads/${file.filename}`);

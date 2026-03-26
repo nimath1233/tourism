@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
   const [editMode, setEditMode] = useState(false);
-  const [driverForm, setDriverForm] = useState({ vehicleType: '', vehicleNumber: '', availability: 'available' });
+  const [driverForm, setDriverForm] = useState({ vehicleType: 'Sedan', vehicleNumber: '', availability: 'available' });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Dashboard = () => {
         setProfile(res.data);
         if (res.data.role === 'driver') {
             setDriverForm({
-                vehicleType: res.data.vehicleType || '',
+                vehicleType: res.data.vehicleType || 'Sedan',
                 vehicleNumber: res.data.vehicleNumber || '',
                 availability: res.data.availability || 'available'
             });
@@ -153,8 +153,16 @@ const Dashboard = () => {
                   ) : (
                       <form onSubmit={handleUpdateDetails} style={{ background: '#f8fafc', padding: '16px', borderRadius: '12px', border: '1px solid var(--outline)' }}>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                              <label style={{ fontSize: '0.9rem', color: '#64748b', fontWeight: '600' }}>Vehicle Type (e.g., SUV, Sedan)</label>
-                              <input type="text" value={driverForm.vehicleType} onChange={(e) => setDriverForm({...driverForm, vehicleType: e.target.value})} style={{ padding: '8px 12px', borderRadius: '8px', border: '1px solid var(--outline)' }} />
+                              <label style={{ fontSize: '0.9rem', color: '#64748b', fontWeight: '600' }}>Vehicle Type</label>
+                              <select value={driverForm.vehicleType} onChange={(e) => setDriverForm({...driverForm, vehicleType: e.target.value})} style={{ padding: '8px 12px', borderRadius: '8px', border: '1px solid var(--outline)' }}>
+                                  <option value="Mini Car">Mini Car (65 LKR/km)</option>
+                                  <option value="AC Mini Car">AC Mini Car (75 LKR/km)</option>
+                                  <option value="Sedan">Sedan (85 LKR/km)</option>
+                                  <option value="SUV">SUV (250 LKR/km)</option>
+                                  <option value="Van">Van (140 LKR/km)</option>
+                                  <option value="Mini Bus">Mini Bus (165 LKR/km)</option>
+                                  <option value="Large Bus">Large Bus (265 LKR/km)</option>
+                              </select>
 
                               <label style={{ fontSize: '0.9rem', color: '#64748b', fontWeight: '600' }}>Vehicle Capacity/Limit</label>
                               <input type="text" value={driverForm.vehicleNumber} onChange={(e) => setDriverForm({...driverForm, vehicleNumber: e.target.value})} style={{ padding: '8px 12px', borderRadius: '8px', border: '1px solid var(--outline)' }} />
